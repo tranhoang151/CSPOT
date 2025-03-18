@@ -1,0 +1,73 @@
+﻿@model CSPOT.Models.TongHopCspotViewModel
+
+@{
+    ViewData["Title"] = "Tổng hợp Cspot";
+}
+
+<h1>Tổng hợp Cspot</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Ngày</th>
+            <th>Sản lượng Qm</th>
+            <th>Sản lượng Qm1</th>
+            <th>Sản lượng Qm2</th>
+            <th>Sản lượng TB</th>
+            <th>Sản lượng VT4</th>
+            <th>Sản lượng VT4-MR</th>
+            <th>Sản lượng DH3-MR</th>
+            <th>Chi phí Cm1</th>
+            <th>Chi phí Cm2</th>
+            <th>Chi phí TB</th>
+            <th>Chi phí VT4</th>
+            <th>Chi phí VT4-MR</th>
+            <th>Chi phí DH3-MR</th>
+            <th>Tổng chi phí</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TongHopCspotList)
+        {
+            <tr>
+                <td>@item.Ngay?.ToString("yyyy-MM-dd")</td>
+                <td>@item.SanLuongQm?.ToString("N0")</td>
+                <td>@item.SanLuongQm1?.ToString("N0")</td>
+                <td>@item.SanLuongQm2?.ToString("N0")</td>
+                <td>@item.SanLuongTb?.ToString("N0")</td>
+                <td>@item.SanLuongVt4?.ToString("N0")</td>
+                <td>@item.SanLuongVt4Mr?.ToString("N0")</td>
+                <td>@item.SanLuongDh3Mr?.ToString("N0")</td>
+                <td>@item.ChiPhiCm1?.ToString("N0")</td>
+                <td>@item.ChiPhiCm2?.ToString("N0")</td>
+                <td>@item.ChiPhiTb?.ToString("N0")</td>
+                <td>@item.ChiPhiVt4?.ToString("N0")</td>
+                <td>@item.ChiPhiVt4Mr?.ToString("N0")</td>
+                <td>@item.ChiPhiDh3Mr?.ToString("N0")</td>
+                <td>@item.TongChiPhi?.ToString("N0")</td>
+            </tr>
+        }
+        <!-- Dòng tổng cộng -->
+        <tr class="table-success font-weight-bold">
+            <td><strong>Tổng cộng</strong></td>
+            <td><strong>@Model.Totals.SanLuongQm?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.SanLuongQm1?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.SanLuongQm2?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.SanLuongTb?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.SanLuongVt4?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.SanLuongVt4Mr?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.SanLuongDh3Mr?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.ChiPhiCm1?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.ChiPhiCm2?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.ChiPhiTb?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.ChiPhiVt4?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.ChiPhiVt4Mr?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.ChiPhiDh3Mr?.ToString("N0")</strong></td>
+            <td><strong>@Model.Totals.TongChiPhi?.ToString("N0")</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
