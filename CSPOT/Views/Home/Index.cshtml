@@ -10,27 +10,27 @@
     <thead>
         <tr>
             <th>Ngày</th>
-            <th>Sản lượng Qm</th>
-            <th>Sản lượng Qm1</th>
-            <th>Sản lượng Qm2</th>
-            <th>Sản lượng TB</th>
-            <th>Sản lượng VT4</th>
-            <th>Sản lượng VT4-MR</th>
-            <th>Sản lượng DH3-MR</th>
-            <th>Chi phí Cm1</th>
-            <th>Chi phí Cm2</th>
-            <th>Chi phí TB</th>
-            <th>Chi phí VT4</th>
-            <th>Chi phí VT4-MR</th>
-            <th>Chi phí DH3-MR</th>
-            <th>Tổng chi phí</th>
+            <th> Qm</th>
+            <th> Qm1</th>
+            <th> Qm2</th>
+            <th> TB</th>
+            <th> VT4</th>
+            <th> VT4-MR</th>
+            <th> DH3-MR</th>
+            <th> Cm1</th>
+            <th> Cm2</th>
+            <th> TB</th>
+            <th> VT4</th>
+            <th> VT4-MR</th>
+            <th> DH3-MR</th>
+            <th>Tổng</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.TongHopCspotList)
         {
             <tr>
-                <td>@item.Ngay?.ToString("yyyy-MM-dd")</td>
+                <td>@item.Ngay?.ToString("MM/dd/yyyy")</td>
                 <td>@item.SanLuongQm?.ToString("N0")</td>
                 <td>@item.SanLuongQm1?.ToString("N0")</td>
                 <td>@item.SanLuongQm2?.ToString("N0")</td>
@@ -49,7 +49,7 @@
         }
         <!-- Dòng tổng cộng -->
         <tr class="table-success font-weight-bold">
-            <td><strong>Tổng cộng</strong></td>
+            <td><strong>Tổng</strong></td>
             <td><strong>@Model.Totals.SanLuongQm?.ToString("N0")</strong></td>
             <td><strong>@Model.Totals.SanLuongQm1?.ToString("N0")</strong></td>
             <td><strong>@Model.Totals.SanLuongQm2?.ToString("N0")</strong></td>

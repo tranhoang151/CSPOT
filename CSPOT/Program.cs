@@ -1,5 +1,6 @@
-using CSPOT.Data;
+﻿using CSPOT.Data;
 using CSPOT.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace CSPOT
@@ -15,6 +16,18 @@ namespace CSPOT
             builder.Services.AddDbContext<QmCspotContext>(options =>
                     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<ITongHopCspotService, TongHopCspotService>();
+
+            // Thêm vào trong phương thức Main sau phần AddControllersWithViews()
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Account/Login";
+                    options.AccessDeniedPath = "/Account/AccessDenied";
+                    options.LogoutPath = "/Account/Logout";
+                    options.Cookie.HttpOnly = true;
+                    options.ExpireTimeSpan = TimeSpan.FromDays(30);
+                });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
