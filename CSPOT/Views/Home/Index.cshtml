@@ -6,6 +6,13 @@
 
 <h1>Tổng hợp Cspot</h1>
 
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="mb-3">
+        <a asp-action="ExportToCsv" class="btn btn-success">Xuất CSV</a>
+    </div>
+}
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>

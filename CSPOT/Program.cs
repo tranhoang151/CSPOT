@@ -28,6 +28,7 @@ namespace CSPOT
                     options.ExpireTimeSpan = TimeSpan.FromDays(30);
                 });
 
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -41,6 +42,7 @@ namespace CSPOT
             app.UseHttpsRedirection();
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();
